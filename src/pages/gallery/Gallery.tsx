@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import type { Exercise } from "../../schemas/workout"
 import { galleryApi } from "../../lib/endpoints/exercises"
 import { toast } from "../../stores/toastStore"
+import BackButton from "../../components/BackButton"
 import ExerciseCard from "./components/ExerciseCard"
 import AddToPlanSheet from "./components/AddToPlanSheet"
 
@@ -122,9 +123,12 @@ function Gallery() {
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             {/* Header */}
             <header className="max-w-[480px] mx-auto px-4 sm:px-6 pt-6 pb-3 flex items-center justify-between">
-                <Link to="/dashboard" className="text-xl font-black tracking-tight">
-                    GC
-                </Link>
+                <div className="flex items-center gap-3">
+                    <BackButton to="/dashboard" />
+                    <Link to="/dashboard" className="text-xl font-black tracking-tight">
+                        GC
+                    </Link>
+                </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-500">
                     Discover
                 </span>

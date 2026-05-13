@@ -12,6 +12,7 @@ import type { PlanDay, PlanExercise } from "../../schemas/workout"
 import type { LogSetInput, WorkoutSessionWithSets } from "../../schemas/session"
 import SetLogger from "./components/SetLogger"
 import RestTimer from "./components/RestTimer"
+import BackButton from "../../components/BackButton"
 import HistorySheet from "./components/HistorySheet"
 import Spinner from "../../components/ui/Spinner"
 import Skeleton from "../../components/ui/Skeleton"
@@ -155,12 +156,15 @@ function SessionView() {
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="sticky top-0 z-10 bg-stone-50/95 backdrop-blur border-b border-neutral-200">
                 <div className="max-w-2xl mx-auto px-6 sm:px-10 py-4 flex items-center justify-between gap-4">
-                    <Link
-                        to="/dashboard"
-                        className="text-xl font-black tracking-tight"
-                    >
-                        GC
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <BackButton />
+                        <Link
+                            to="/dashboard"
+                            className="text-xl font-black tracking-tight"
+                        >
+                            GC
+                        </Link>
+                    </div>
                     <div className="flex items-center gap-3">
                         <span className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 tabular-nums">
                             {elapsed}

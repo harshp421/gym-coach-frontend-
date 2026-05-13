@@ -8,6 +8,7 @@ import { confirm } from "../../stores/confirmStore"
 import { toast } from "../../stores/toastStore"
 import { isCloudinaryConfigured, uploadImage } from "../../lib/cloudinary"
 import Spinner from "../../components/ui/Spinner"
+import BackButton from "../../components/BackButton"
 import MessageBubble from "./components/MessageBubble"
 
 type StagedPhoto = {
@@ -166,12 +167,15 @@ function CoachView() {
         <main className="h-dvh bg-stone-50 text-neutral-900 flex flex-col overflow-hidden">
             <header className="sticky top-0 z-10 bg-stone-50/95 backdrop-blur border-b border-neutral-200">
                 <div className="max-w-3xl mx-auto px-6 sm:px-10 py-4 flex items-center justify-between gap-3">
-                    <Link
-                        to="/dashboard"
-                        className="text-xl font-black tracking-tight"
-                    >
-                        GC
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <BackButton to="/dashboard" label="Back to dashboard" />
+                        <Link
+                            to="/dashboard"
+                            className="text-xl font-black tracking-tight"
+                        >
+                            GC
+                        </Link>
+                    </div>
                     <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-500">
                         Coach
                     </span>
