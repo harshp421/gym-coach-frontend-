@@ -29,6 +29,7 @@ import Spinner from "../../components/ui/Spinner"
 import Skeleton from "../../components/ui/Skeleton"
 import DayEditor from "./components/DayEditor"
 import ExercisePicker from "./components/ExercisePicker"
+import BackButton from "../../components/BackButton"
 
 type DayStatus = "idle" | "in_progress" | "done_today"
 // Add-exercise lives inline inside DayEditor now; PlanView only opens the
@@ -783,9 +784,12 @@ function Shell({
     return (
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="max-w-3xl mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
-                <Link to="/dashboard" className="text-xl font-black tracking-tight">
-                    GC
-                </Link>
+                <div className="flex items-center gap-3">
+                    <BackButton to="/dashboard" />
+                    <Link to="/dashboard" className="text-xl font-black tracking-tight">
+                        GC
+                    </Link>
+                </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-500">
                     {title}
                 </span>

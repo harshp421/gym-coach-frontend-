@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { exercisesApi } from "../../lib/endpoints/exercises"
 import { useQuery } from "../../hooks/useQuery"
+import BackButton from "../../components/BackButton"
 
 function ExerciseDetail() {
     const { slug = "" } = useParams<{ slug: string }>()
@@ -17,16 +18,18 @@ function ExerciseDetail() {
     return (
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="max-w-3xl mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
-                <Link to="/dashboard" className="text-xl font-black tracking-tight">
-                    GC
-                </Link>
-                <button
-                    type="button"
-                    onClick={() => window.history.back()}
+                <div className="flex items-center gap-3">
+                    <BackButton />
+                    <Link to="/dashboard" className="text-xl font-black tracking-tight">
+                        GC
+                    </Link>
+                </div>
+                <Link
+                    to="/exercises/mine"
                     className="text-xs font-medium text-neutral-500 hover:text-neutral-900"
                 >
-                    ← Back
-                </button>
+                    My exercises →
+                </Link>
             </header>
 
             <section className="max-w-3xl mx-auto px-6 sm:px-10 pb-24">
