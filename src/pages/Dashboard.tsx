@@ -284,13 +284,16 @@ function TodayCard({
                         ? `${setsLogged} of ${totalSlots} exercises started`
                         : "session running"}
                 </div>
-                <Link
-                    to={`/workouts/sessions/${active.id}`}
-                    className="mt-6 inline-flex self-start items-center gap-2 min-h-12 px-5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors"
-                >
-                    Resume
-                    <span aria-hidden className="text-base">→</span>
-                </Link>
+                <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <Link
+                        to={`/workouts/sessions/${active.id}`}
+                        className="inline-flex items-center gap-2 min-h-12 px-5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors"
+                    >
+                        Resume
+                        <span aria-hidden className="text-base">→</span>
+                    </Link>
+                    <ViewFullPlanLink />
+                </div>
             </CardShell>
         )
     }
@@ -305,13 +308,16 @@ function TodayCard({
                 <p className="mt-1 text-sm text-neutral-500">
                     Nice work. See what changed.
                 </p>
-                <Link
-                    to="/progress"
-                    className="mt-6 inline-flex self-start items-center gap-2 min-h-12 px-5 rounded-full border border-neutral-300 text-sm font-semibold hover:border-neutral-900 transition-colors"
-                >
-                    See progress
-                    <span aria-hidden>→</span>
-                </Link>
+                <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <Link
+                        to="/progress"
+                        className="inline-flex items-center gap-2 min-h-12 px-5 rounded-full border border-neutral-300 text-sm font-semibold hover:border-neutral-900 transition-colors"
+                    >
+                        See progress
+                        <span aria-hidden>→</span>
+                    </Link>
+                    <ViewFullPlanLink />
+                </div>
             </CardShell>
         )
     }
@@ -326,13 +332,16 @@ function TodayCard({
                 <div className="mt-1 text-sm text-neutral-500 tabular-nums">
                     {today.exercises.length} exercises
                 </div>
-                <Link
-                    to={`/workouts/day/${today.dayIndex}`}
-                    className="mt-6 inline-flex self-start items-center gap-2 min-h-12 px-5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors"
-                >
-                    Start
-                    <span aria-hidden className="text-base">→</span>
-                </Link>
+                <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <Link
+                        to={`/workouts/day/${today.dayIndex}`}
+                        className="inline-flex items-center gap-2 min-h-12 px-5 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-800 transition-colors"
+                    >
+                        Start
+                        <span aria-hidden className="text-base">→</span>
+                    </Link>
+                    <ViewFullPlanLink />
+                </div>
             </CardShell>
         )
     }
@@ -354,6 +363,17 @@ function TodayCard({
                 <span aria-hidden>→</span>
             </Link>
         </CardShell>
+    )
+}
+
+function ViewFullPlanLink() {
+    return (
+        <Link
+            to="/workouts/plan"
+            className="text-sm text-neutral-500 hover:text-neutral-900 underline underline-offset-4"
+        >
+            View full plan →
+        </Link>
     )
 }
 

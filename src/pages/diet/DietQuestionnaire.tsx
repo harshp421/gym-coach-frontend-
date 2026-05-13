@@ -12,6 +12,7 @@ import {
 } from "../../schemas/diet"
 import { toast } from "../../stores/toastStore"
 import Spinner from "../../components/ui/Spinner"
+import BackButton from "../../components/BackButton"
 
 const COOKING_TIME_INFO: Record<
     CookingTime,
@@ -117,12 +118,15 @@ function DietQuestionnaire() {
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="sticky top-0 z-10 bg-stone-50/90 backdrop-blur border-b border-neutral-200">
                 <div className="max-w-2xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between">
-                    <Link
-                        to="/dashboard"
-                        className="text-xl font-black tracking-tight"
-                    >
-                        GC
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <BackButton />
+                        <Link
+                            to="/dashboard"
+                            className="text-xl font-black tracking-tight"
+                        >
+                            GC
+                        </Link>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500">
                         Diet preferences
                     </span>

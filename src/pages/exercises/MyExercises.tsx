@@ -6,6 +6,7 @@ import { useCachedQuery } from "../../hooks/useCachedQuery"
 import { invalidatePrefix } from "../../lib/cache"
 import { confirm } from "../../stores/confirmStore"
 import { toast } from "../../stores/toastStore"
+import BackButton from "../../components/BackButton"
 import type {
     UserExercise,
     UserExerciseInput,
@@ -93,9 +94,12 @@ function MyExercises() {
     return (
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="max-w-3xl mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
-                <Link to="/dashboard" className="text-xl font-black tracking-tight">
-                    GC
-                </Link>
+                <div className="flex items-center gap-3">
+                    <BackButton to="/dashboard" />
+                    <Link to="/dashboard" className="text-xl font-black tracking-tight">
+                        GC
+                    </Link>
+                </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-500">
                     My exercises
                 </span>

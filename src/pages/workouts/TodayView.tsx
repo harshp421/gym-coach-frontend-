@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { workoutsApi } from "../../lib/endpoints/workouts"
 import { useQuery } from "../../hooks/useQuery"
 import DaySession from "./components/DaySession"
+import BackButton from "../../components/BackButton"
 
 function TodayView() {
     const { state, call: fetchToday } = useQuery(workoutsApi.getToday)
@@ -16,9 +17,12 @@ function TodayView() {
     return (
         <main className="min-h-screen bg-stone-50 text-neutral-900">
             <header className="max-w-2xl mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
-                <Link to="/dashboard" className="text-xl font-black tracking-tight">
-                    GC
-                </Link>
+                <div className="flex items-center gap-3">
+                    <BackButton to="/dashboard" />
+                    <Link to="/dashboard" className="text-xl font-black tracking-tight">
+                        GC
+                    </Link>
+                </div>
                 <Link
                     to="/workouts/plan"
                     className="text-xs font-medium text-neutral-500 hover:text-neutral-900"
